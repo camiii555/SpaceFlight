@@ -20,7 +20,6 @@ Una aplicación iOS desarrollada en Swift que consume la [Spaceflight News API](
 
 ## 📷 Capturas de pantalla
 
-*(Puedes agregar aquí imágenes de la app si lo deseas)*
 
 ## 📦 Instalación
 
