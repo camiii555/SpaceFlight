@@ -5,6 +5,7 @@
 //  Created by Juan Camilo  Mejia Soto on 18/04/25.
 //
 
+
 import SwiftUI
 import Foundation
 
@@ -21,9 +22,15 @@ struct ArticleDetailView: View {
     var body: some View {
         GeometryReader { geometry in
             ScrollView {
-                VStack {
+                VStack(alignment: .center) {
                     if articleViewModel.isLoading {
-                        ProgressView("Loading..")
+                        VStack {
+                            Spacer()
+                            ProgressView("Loading...")
+                                .padding()
+                            Spacer()
+                        }
+                        .frame(minHeight: geometry.size.height)
                     } else {
                         AsyncImage(url: URL(string: articleViewModel.article?.imageURL ?? "")) { image in
                             image
@@ -76,6 +83,7 @@ struct ArticleDetailView: View {
                         .padding(.vertical, 30)
                     }
                 }
+                .frame(maxWidth: .infinity)
                 .onAppear {
                     articleViewModel.getArticleDetail(articleId: articleId)
                 }
@@ -98,4 +106,5 @@ struct ArticleDetailView: View {
 #Preview {
     ArticleDetailView(articleId: 307300)
 }
+
 
